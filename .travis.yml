@@ -1,0 +1,26 @@
+language: node_js
+
+install:
+- npm install -g gulp
+- npm install -g bower
+- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+before_script:
+- npm install
+- bower install
+
+script: return 0
+
+before_deploy: make release
+
+deploy:
+  provider: s3
+  access_key_id: AKIAIKAOQMWIKVZMP4BQ
+  secret_access_key:
+    secure: bP6jerqrl507jzELAyIE15geO/x6prPKFO/1zpu9P4lhaTfGW9akdZLQclEqS8eYsXWZnaMyVKxZwsugQkZ1D7BoSnlkIk+0M8F33uqzx/fXtBOh3QuyvlpB2rNXrF3Dz96nVSGm4KI2M+EEUmgvNcXHVF/vU1LF+HNY8491t1M=
+  bucket: com.mihirsingh.resume
+  skip_cleanup: true
+  local-dir: release
+  acl: public_read
+  on:
+    repo: citruspi/resume
