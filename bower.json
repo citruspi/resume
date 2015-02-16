@@ -1,0 +1,21 @@
+{
+  "name": "resume",
+  "version": "0.0.0",
+  "homepage": "resume.mihirsingh.com",
+  "authors": [
+    "Mihir Singh (@citruspi)"
+  ],
+  "license": "UNLICENSE",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "4.2.0"
+  }
+}
