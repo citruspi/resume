@@ -5,25 +5,29 @@ ifeq ($(strip $(BRANCH)),)
 	BRANCH:=$(shell git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 endif
 
-all: clean dist
+all: clean public
 
 clean:
 
+	rm -rf public
 	rm -rf release
-	rm -rf dist
 
-dist: clean
+public: clean
 
-	gulp build
+	ljon
 
-release: dist
+release: public
 
 	mkdir release
-	cd dist && zip -r ../dist.zip .
+	cd public  && zip -r ../dist.zip .
 
 	cp dist.zip release/$(COMMIT).zip
 	cp dist.zip release/$(BRANCH).zip
 
 	rm dist.zip
 
-.PHONY: clean
+server:
+
+	ljon --server
+
+.PHONY: clean server

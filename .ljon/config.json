@@ -1,0 +1,14 @@
+{
+    "metadata": {
+        "title": "Resume"
+    },
+    "ignore": [
+        ".*\\..+\\.j2.json",
+        "\\./public.*"
+    ],
+    "processors": {
+        "(.*\\..+)\\.j2": {
+            "processor": "jinja"
+        }
+    }
+}
